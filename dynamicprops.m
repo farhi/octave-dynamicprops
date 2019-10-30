@@ -52,7 +52,7 @@
 
 ## Author: Farhi
 
-classdef dynamicprops (Abstract) < handle
+classdef (Abstract) dynamicprops < handle
 
   properties
     dynamicprops_added = []; ## Properties dynamically added
