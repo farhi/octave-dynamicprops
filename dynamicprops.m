@@ -18,7 +18,7 @@
 
 ## -*- texinfo -*-
 ## @deftypefn  {Function File} dynamicprops
-## A superclass to add dynamically properties to an object.
+## A superclass to dynamically add properties to an object.
 ##
 ## This superclass should be used to derive an other class from it, e.g.
 ##
