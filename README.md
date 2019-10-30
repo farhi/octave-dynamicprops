@@ -1,7 +1,7 @@
 # octave-dynamicprops
-An Octave class similar to the Matlab dynamicprops
+An Octave superclass allowing to add new properties dynamically
 
-This class allows to add dynamically properties to an object.
+This superclass allows to add dynamically properties to an object.
 
 Currently, it includes:
 - the ```PropertyAdded``` event (but not supported by Octave 4.2)
@@ -45,7 +45,7 @@ S = subs_added(a,S);
 ```
 when entering these methods, to allow the substructure S to search for added properties.
 
-The ```dynamicprops_added``` property is used to store additional, dynamic properties. As opposed to matlab, it is here visible so that other Octave built-in methods work.
+The ```dynamicprops_added``` property is used to store additional, dynamic properties.
 
 Credits
 =======
