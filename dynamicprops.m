@@ -40,6 +40,8 @@ classdef dynamicprops < handle
 %   S = subs_added(a,S);
 %  
 % to allow the substructure S to search for added properties.
+%
+% (c) E. Farhi / Synchrotron Soleil (2019), GPL 2.
 
   properties
     dynamicprops_added = []; % Properties dynamically added
