@@ -1,11 +1,7 @@
 # octave-dynamicprops
 An Octave class similar to the Matlab dynamicprops
 
-**dynamicprops** is a class derived from the ```handle``` class. Subclass ```dynamicprops``` to define classes that support dynamic properties.
-Dynamic properties are associated with a specific object of the class, but are not part of the class definition. Use dynamic properties to attach temporary data to objects. 
-
-This class allows to add dynamically properties, just as the dynamicprops one works:
-- https://fr.mathworks.com/help/matlab/ref/dynamicprops-class.html
+This class allows to add dynamically properties to an object.
 
 Currently, it includes:
 - the ```PropertyAdded``` event (but not supported by Octave 4.2)
@@ -16,7 +12,7 @@ Currently, it includes:
 Usage
 =====
 The class derives from ```handle```, so that defining your class as:
-```matlab
+```octave
 classdef blah < dynamicprops
   ...
 end
@@ -25,7 +21,7 @@ also sets it as a 'handle', that is a reference (pointer) object, with the attac
 See https://octave.org/doc/v4.2.2/Value-Classes-vs_002e-Handle-Classes.html#Value-Classes-vs_002e-Handle-Classes
 
 Then use:
-```matlab
+```octave
 obj = blah;
 addprop(obj, 'field')
 obj.field = 42;
@@ -34,8 +30,9 @@ obj.field = 42;
 Example
 =======
 You may test the ```dynamicprops`` class by running:
-```matlab
+```octave
 addpath /path/to/octave-dynamicprops
+cd /path/to/octave-dynamicprops/example
 dynamicprops_demo
 ```
 which should return 'OK'. Look at its source to see how to use the class.
