@@ -43,7 +43,7 @@
 ## ====
 ## If you come to redefine 'subsref' and 'subsasgn' methods, you will need to add a line such as:
 ## 
-##   S = subs_added(a,S);
+##   S = subs_added (a,S);
 ##  
 ## to allow the substructure S to search for added properties.
 ##
@@ -55,7 +55,7 @@
 classdef (Abstract) dynamicprops < handle
 
   properties
-    dynamicprops_added = []; ## Properties dynamically added
+    dynamicprops_added = []; # Properties dynamically added
   end
   
   events
@@ -63,29 +63,29 @@ classdef (Abstract) dynamicprops < handle
   end
   
   methods
-    function prop = addprop(h, prop)  
+    function prop = addprop (h, prop)  
       ## -*- texinfo -*-
       ## @deftypefn {Function File} {@var{prop} =} addprop (@var{obj},@var{prop})
       ## Add a new property @var{prop} to the object @var{obj}.
       ##
       ## @var{obj} is an object derived from @code{dynamicprops}, and @var{prop} is a property name (string).
       ## @end deftypefn
-      if nargin < 2 || ~ischar(prop) || isempty(prop) || isempty(h)
-        error([ mfilename ': addprop: Parameter must be a string.' ]); 
+      if (nargin < 2 || ~ischar(prop) || isempty(prop) || isempty(h))
+        error ([ mfilename ": addprop: Parameter must be a string." ]); 
       end
       prop = prop(:)';
-      if ~isvarname(prop)
-        error([ mfilename ': addprop: Parameter must be a valid property name.' ]); 
+      if (!isvarname (prop))
+        error ([ mfilename "': addprop: Parameter must be a valid property name." ]); 
       end
       for index=1:numel(h)
-        this = h(index);
-        this.dynamicprops_added.(prop)=[];
-        h(index) = this;
-        try; notify(this, 'PropertyAdded'); end
+        this = h (index);
+        this.dynamicprops_added.(prop) = [];
+        h (index) = this;
+        try; notify (this, "PropertyAdded"); end
       end
-    end ## addprop
+    endfunction # addprop
     
-    function v = subsref(a,S)
+    function v = subsref (a,S)
       ## -*- texinfo -*-
       ## @deftypefn {Function File} @var{VAL} = subsref (@var{OBJ}, @var{IDX})
       ## Perform the subscripted element selection operation according to
@@ -100,11 +100,11 @@ classdef (Abstract) dynamicprops < handle
       ##    @var{VAL} = @var{OBJ}.@var{FIELD} 
       ## or @var{VAL} = @var{OBJ}(@var{IDX})
       ## @end deftypefn
-      S = subs_added(a,S);
-      v = builtin('subsref', a, S);
-    end
+      S = subs_added (a,S);
+      v = builtin ("subsref", a, S);
+    endfunction # subsref
     
-    function a=subsasgn(a,S, v)
+    function a = subsasgn (a, S, v)
       ## -*- texinfo -*-
       ## @deftypefn {Function File} subsasgn (@var{OBJ}, @var{IDX}, @var{VAL})
       ## Perform the subscripted assignment operation according to the
@@ -119,15 +119,15 @@ classdef (Abstract) dynamicprops < handle
       ##    @var{OBJ}.@var{FIELD}  = @var{VAL}
       ## or @var{OBJ}(@var{IDX})    = @var{VAL}
       ## @end deftypefn
-      S = subs_added(a,S);
-      a = builtin('subsasgn', a, S, v);
-    end
+      S = subs_added (a, S);
+      a = builtin ("subsasgn", a, S, v);
+    endfunction # subsasgn
     
-  end ## methods
+  end # methods
   
   methods (Access=protected)
   
-    function S = subs_added(a,S)
+    function S = subs_added (a,S)
       ## -*- texinfo -*-
       ## @deftypefn {Function File} @var{IDX} = subs_added (@var{OBJ}, @var{IDX})
       ## Take into account the dynamic properties when getting/setting added content.
@@ -140,24 +140,24 @@ classdef (Abstract) dynamicprops < handle
       ## This method should be inserted at the beginning of any overridden 'subsref'
       ## or 'subsasgn' method.
       ## @end deftypefn
-      if isempty(S), return; end
-      if isempty(a.dynamicprops_added), return; end
-      if ischar(S), S=struct('type','.','subs', S); end
+      if (isempty (S)), return; end
+      if (isempty (a.dynamicprops_added)), return; end
+      if (ischar (S)), S = struct ("type",".","subs", S); end
       ## we search for fields that match any of the dynamicprops_added elements
       ## and add a new level above with it
       
-      f     = fieldnames(a.dynamicprops_added);
-      index = find(strcmp(S(1).subs, f));
-      if strcmp(S(1).type, '.') && ~isempty(index)
-        S0 = struct('type','.' ,'subs', 'dynamicprops_added');
+      f     = fieldnames (a.dynamicprops_added);
+      index = find (strcmp (S(1).subs, f));
+      if (strcmp (S(1).type, ".") && ~isempty (index))
+        S0 = struct ("type","." ,"subs", "dynamicprops_added");
         S = [ S0 S ];
       end
       
-    end ## subs_added
+    endfunction # subs_added
     
-  end ## methods protected
-end ## classdef dynamicprops
+  end # methods protected
+end # classdef dynamicprops
 
 ## No test possible for superclass
-##!assert (1)
+#!assert (1)
 
