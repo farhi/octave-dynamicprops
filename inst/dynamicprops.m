@@ -72,17 +72,17 @@ classdef (Abstract) dynamicprops < handle
       ## @end deftypefn
       if (nargin < 2 || ~ischar(prop) || isempty(prop) || isempty(h))
         error ([ mfilename ": addprop: Parameter must be a string." ]); 
-      end
+      endif
       prop = prop(:)';
       if (!isvarname (prop))
         error ([ mfilename "': addprop: Parameter must be a valid property name." ]); 
-      end
+      endif
       for index=1:numel(h)
         this = h (index);
         this.dynamicprops_added.(prop) = [];
         h (index) = this;
         try; notify (this, "PropertyAdded"); end
-      end
+      endfor
     endfunction # addprop
     
     function v = subsref (a,S)
@@ -140,9 +140,9 @@ classdef (Abstract) dynamicprops < handle
       ## This method should be inserted at the beginning of any overridden 'subsref'
       ## or 'subsasgn' method.
       ## @end deftypefn
-      if (isempty (S)), return; end
-      if (isempty (a.dynamicprops_added)), return; end
-      if (ischar (S)), S = struct ("type",".","subs", S); end
+      if (isempty (S)), return; endif
+      if (isempty (a.dynamicprops_added)), return; endif
+      if (ischar (S)), S = struct ("type",".","subs", S); endif
       ## we search for fields that match any of the dynamicprops_added elements
       ## and add a new level above with it
       
@@ -151,7 +151,7 @@ classdef (Abstract) dynamicprops < handle
       if (strcmp (S(1).type, ".") && ~isempty (index))
         S0 = struct ("type","." ,"subs", "dynamicprops_added");
         S = [ S0 S ];
-      end
+      endif
       
     endfunction # subs_added
     
