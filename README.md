@@ -38,7 +38,7 @@ Install [dynamicprops-0.1](https://github.com/farhi/octave-dynamicprops/releases
 
 Example
 =======
-You may test the ```dynamicprops`` class by running:
+You may test the ```dynamicprops``` class by running [dynamicprops_demo](https://raw.githubusercontent.com/farhi/octave-dynamicprops/master/example/dynamicprops_demo.m):
 ```octave
 addpath /path/to/octave-dynamicprops
 cd /path/to/octave-dynamicprops/example
