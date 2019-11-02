@@ -27,6 +27,15 @@ addprop(obj, 'field')
 obj.field = 42;
 ```
 
+Installation
+============
+Install [dynamicprops-0.1](https://github.com/farhi/octave-dynamicprops/releases/download/0.1/dynamicprops.tar.gz) manually with:
+
+- wget https://github.com/farhi/octave-dynamicprops/releases/download/0.1/dynamicprops.tar.gz
+- launch octave
+- pkg install dynamicprops.tar.gz
+- pkg load dynamicprops
+
 Example
 =======
 You may test the ```dynamicprops`` class by running:
