@@ -1,0 +1,10 @@
+Name: dynamicprops
+Version: 0.1
+Date: 2019-11-02
+Author: Emmanuel Farhi
+Maintainer: Octave-Forge community <maintainers@octave.org>
+Title: Dynamic Properties Superclass
+Description: A superclass allowing to add new properties dynamically
+Depends: octave (>= 4.0.0)
+License: GPLv2, public domain
+Url: https://github.com/farhi/octave-dynamicprops

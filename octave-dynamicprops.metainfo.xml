@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>octave-dynamicprops</id>
+  <extends>www.octave.org-octave.desktop</extends>
+  <name>Dynamic Properties Superclass</name>
+  <summary>A superclass allowing to add new properties dynamically</summary>
+  <description>
+    <p>This superclass allows to add dynamically properties to an object.
+    </p>
+  </description>
+  <keywords>
+    <keyword>classdef</keyword>
+    <keyword>properties</keyword>
+  </keywords>
+  <url type="homepage">https://github.com/farhi/octave-dynamicprops</url>
+  <url type="bugtracker">https://github.com/farhi/octave-dynamicprops/issues</url>
+  <project_license>GPL-2</project_license>
+  <update_contact>emmanuel.farhi@synchrotron-soleil.fr</update_contact>
+  <metadata_license>FSFAP</metadata_license>
+</component>
