@@ -56,11 +56,11 @@ classdef (Abstract) dynamicprops < handle
 
   properties
     dynamicprops_added = []; # Properties dynamically added
-  end
+  endproperties
   
   events
     PropertyAdded
-  end
+  endevents
   
   methods
     function prop = addprop (h, prop)  
@@ -155,9 +155,18 @@ classdef (Abstract) dynamicprops < handle
       
     endfunction # subs_added
     
-  end # methods protected
-end # classdef dynamicprops
+  endmethods # methods protected
+endclassdef # classdef dynamicprops
 
-## No test possible for superclass
-#!assert (1)
+## Tests for dynamicprops
+%!classdef dynamicprops_class < dynamicprops
+%!endclassdef
+
+## check normal use: add prop, set and get it.
+%!test
+%!  obj = dynamicprops_class;
+%!  addprop (obj, 'field1');
+%!  assert (obj.field1, [])
+%!  obj.field1 = 42;
+%!  assert (obj.field1, 42)
 
