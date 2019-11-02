@@ -11,6 +11,7 @@
   <keywords>
     <keyword>classdef</keyword>
     <keyword>properties</keyword>
+    <keyword>addprop</keyword>
   </keywords>
   <url type="homepage">https://github.com/farhi/octave-dynamicprops</url>
   <url type="bugtracker">https://github.com/farhi/octave-dynamicprops/issues</url>

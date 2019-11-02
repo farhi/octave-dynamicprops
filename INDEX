@@ -1,5 +1,5 @@
 dynamicprops >> Dynamic Properties Superclass
-DynamicProps
+Main class
  @dynamicprops/addprop
  @dynamicprops/subsref
  @dynamicprops/subsasgn
