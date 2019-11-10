@@ -159,8 +159,8 @@ classdef (Abstract) dynamicprops < handle
 endclassdef # classdef dynamicprops
 
 ## Tests for dynamicprops
-%!classdef dynamicprops_class < dynamicprops
-%!endclassdef
+%!  classdef dynamicprops_class < dynamicprops
+%!  endclassdef
 
 ## check normal use: add prop, set and get it.
 %!test
