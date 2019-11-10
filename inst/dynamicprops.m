@@ -160,6 +160,8 @@ endclassdef # classdef dynamicprops
 
 ## Tests for dynamicprops
 %!  classdef dynamicprops_class < dynamicprops
+%!    properties
+%!    endproperties
 %!  endclassdef
 
 ## check normal use: add prop, set and get it.
